@@ -5,6 +5,9 @@ machine:
 dependencies:
   override:
     - cabal install HUnit
+  cache_directories:
+    - "/usr/bin"
+    - "/usr/local/bin"
 
 test:
   override:
