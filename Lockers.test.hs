@@ -8,7 +8,8 @@ main = do runTestTT tests
 
 tests = TestList [
   lockerNotFound,
-  lockerTaken
+  lockerTaken,
+  lockerFoundReturnsCode
   ]
 
 lockerNotFound =
@@ -22,3 +23,9 @@ lockerTaken =
   where
     lockerNumber = 0
     lockers = Map.fromList [(0,(Taken,"000"))]
+
+lockerFoundReturnsCode =
+  lookupLocker lockerNumber lockers ~?= Right "000"
+  where
+    lockerNumber = 0
+    lockers = Map.fromList [(0,(Free,"000"))]
