@@ -20,4 +20,4 @@ lookupLocker lockerNumber lockers =
     Nothing -> Left $ "Locker " ++ show lockerNumber ++ " not found"
     Just (state,code) -> if state /= Taken
                            then Right code
-                           else Left $ "Locker" ++ show lockerNumber  ++ " already taken"
+                           else Left $ "Locker " ++ show lockerNumber  ++ " already taken"
