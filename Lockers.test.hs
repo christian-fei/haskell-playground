@@ -13,19 +13,16 @@ tests = TestList [
   ]
 
 lockerNotFound =
-  lookupLocker lockerNumber lockers ~?= Left "Locker 1 not found"
-  where
-    lockerNumber = 1
-    lockers = Map.fromList [(0,(Free,"000"))]
+  lookupLocker unexistingLockerNumber freeLockers ~?= Left "Locker 1 not found"
 
 lockerTaken =
-  lookupLocker lockerNumber lockers ~?= Left "Locker 0 already taken"
-  where
-    lockerNumber = 0
-    lockers = Map.fromList [(0,(Taken,"000"))]
+  lookupLocker existingLockerNumber takenLockers ~?= Left "Locker 0 already taken"
 
 lockerFoundReturnsCode =
-  lookupLocker lockerNumber lockers ~?= Right "000"
-  where
-    lockerNumber = 0
-    lockers = Map.fromList [(0,(Free,"000"))]
+  lookupLocker existingLockerNumber freeLockers ~?= Right code
+
+code = "000"
+existingLockerNumber = 0
+unexistingLockerNumber = 1
+freeLockers = Map.fromList [(0,(Free,code))]
+takenLockers = Map.fromList [(0,(Taken,code))]
