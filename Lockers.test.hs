@@ -13,10 +13,10 @@ tests = TestList [
   ]
 
 lockerNotFound =
-  lookupLocker unexistingLockerNumber freeLockers ~?= Left "Locker 1 not found"
+  lookupLocker unexistingLockerNumber freeLockers ~?= (Left $ "Locker " ++ show unexistingLockerNumber ++ " not found")
 
 lockerTaken =
-  lookupLocker existingLockerNumber takenLockers ~?= Left "Locker 0 already taken"
+  lookupLocker existingLockerNumber takenLockers ~?= (Left $ "Locker " ++ show existingLockerNumber ++ " already taken")
 
 lockerFoundReturnsCode =
   lookupLocker existingLockerNumber freeLockers ~?= Right code
