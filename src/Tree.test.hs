@@ -7,7 +7,8 @@ main = do runTestTT tests
 
 tests = TestList [
   createsTreeWithEmptyTreeLeafes,
-  createsSingletonWhenInsertingElementInEmptyTree
+  createsSingletonWhenInsertingElementInEmptyTree,
+  ignoresInsertForSameElement
   ]
 
 createsTreeWithEmptyTreeLeafes =
@@ -15,3 +16,6 @@ createsTreeWithEmptyTreeLeafes =
 
 createsSingletonWhenInsertingElementInEmptyTree =
   insertTree 1 EmptyTree ~?= singleton 1
+
+ignoresInsertForSameElement =
+  insertTree 1 (Node 1 EmptyTree EmptyTree) ~?= Node 1 EmptyTree EmptyTree
