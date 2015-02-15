@@ -29,4 +29,4 @@ insertsSmallerElementToTheLeft =
   insertTree 0 tree ~?= (Node 1 (Node 0 EmptyTree EmptyTree) EmptyTree)
 
 insertsGreaterElementToTheRight =
-  insertTree 1 tree ~?= (Node 1 EmptyTree (Node 2 EmptyTree EmptyTree))
+  insertTree 2 tree ~?= (Node 1 EmptyTree (Node 2 EmptyTree EmptyTree))
