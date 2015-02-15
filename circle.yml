@@ -4,4 +4,5 @@ machine:
 
 dependencies:
   pre:
+    - rm -rf dist
     - cabal clean
