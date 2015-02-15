@@ -5,6 +5,8 @@ import Tree
 
 main = do runTestTT tests
 
+baseTree = singleton 1
+
 tests = TestList [
   createsTreeWithEmptyTreeLeafes,
   createsSingletonWhenInsertingElementInEmptyTree,
@@ -13,6 +15,7 @@ tests = TestList [
   insertsGreaterElementToTheRight
   ]
 
+
 createsTreeWithEmptyTreeLeafes =
   singleton 1 ~?= Node 1 EmptyTree EmptyTree
 
@@ -20,10 +23,10 @@ createsSingletonWhenInsertingElementInEmptyTree =
   insertTree 1 EmptyTree ~?= singleton 1
 
 ignoresInsertForSameElement =
-  insertTree 1 (Node 1 EmptyTree EmptyTree) ~?= Node 1 EmptyTree EmptyTree
+  insertTree 1 baseTree ~?= Node 1 EmptyTree EmptyTree
 
 insertsSmallerElementToTheLeft =
-  insertTree 1 (Node 2 EmptyTree EmptyTree) ~?= (Node 2 (Node 1 EmptyTree EmptyTree) EmptyTree)
+  insertTree 0 baseTree ~?= (Node 1 (Node 0 EmptyTree EmptyTree) EmptyTree)
 
 insertsGreaterElementToTheRight =
-  insertTree 3 (Node 2 EmptyTree EmptyTree) ~?= (Node 2 EmptyTree (Node 3 EmptyTree EmptyTree))
+  insertTree 1 baseTree ~?= (Node 1 EmptyTree (Node 2 EmptyTree EmptyTree))
