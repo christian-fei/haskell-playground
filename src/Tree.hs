@@ -18,8 +18,10 @@ treeInsert a (Node x left right)
   | a < x  = Node x (treeInsert a left) right
   | a > x  = Node x left (treeInsert a right)
 
-treeElem :: (Eq a) => a -> Tree a -> Bool
+treeElem :: (Ord a) => a -> Tree a -> Bool
 treeElem a EmptyTree = False
 treeElem a (Node x left right)
   | a == x = True
-  | otherwise = treeElem a left || treeElem a right
+--  | otherwise = treeElem a left || treeElem a right
+  | a < x = treeElem a left
+  | a > x = treeElem a right
