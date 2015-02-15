@@ -13,7 +13,10 @@ tests = TestList [
   doesNotInsertDuplicates,
   insertsSmallerElementToTheLeft,
   insertsGreaterElementToTheRight,
-  doesNotFindElementInEmptyTree
+  doesNotFindElementInEmptyTree,
+  doesNotFindElementIfNotExists,
+  findsElementIfExists,
+  findsNestedElementIfExists
   ]
 
 
@@ -34,3 +37,12 @@ insertsGreaterElementToTheRight =
 
 doesNotFindElementInEmptyTree =
   treeElem 0 EmptyTree ~?= False
+
+doesNotFindElementIfNotExists =
+  treeElem 0 tree ~?= False
+
+findsElementIfExists=
+  treeElem 1 tree ~?= True
+
+findsNestedElementIfExists =
+  treeElem 2 (insertTree 2 tree) ~?= True

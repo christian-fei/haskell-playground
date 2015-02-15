@@ -20,3 +20,6 @@ insertTree a (Node x left right)
 
 treeElem :: (Eq a) => a -> Tree a -> Bool
 treeElem a EmptyTree = False
+treeElem a (Node x left right)
+  | a == x = True
+  | otherwise = treeElem a left || treeElem a right
