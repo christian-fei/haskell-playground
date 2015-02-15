@@ -5,7 +5,7 @@ import Tree
 
 main = do runTestTT tests
 
-tree = baseTree 1
+tree = Node 1 EmptyTree EmptyTree
 
 tests = TestList [
   createsTreeWithEmptyTreeLeafes,
