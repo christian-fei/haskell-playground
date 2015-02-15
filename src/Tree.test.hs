@@ -12,7 +12,8 @@ tests = TestList [
   createsEmptyTreeWithElementWhenInsertingElementInEmptyTree,
   doesNotInsertDuplicates,
   insertsSmallerElementToTheLeft,
-  insertsGreaterElementToTheRight
+  insertsGreaterElementToTheRight,
+  doesNotFindElementInEmptyTree
   ]
 
 
@@ -30,3 +31,6 @@ insertsSmallerElementToTheLeft =
 
 insertsGreaterElementToTheRight =
   insertTree 2 tree ~?= (Node 1 EmptyTree (Node 2 EmptyTree EmptyTree))
+
+doesNotFindElementInEmptyTree =
+  treeElem 0 EmptyTree ~?= False

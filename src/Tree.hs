@@ -1,7 +1,8 @@
 module Tree (
   Tree (..),
   baseTree,
-  insertTree
+  insertTree,
+  treeElem
 )
 where
 
@@ -16,3 +17,6 @@ insertTree a (Node x left right)
   | a == x = Node x left right
   | a < x  = Node x (insertTree a left) right
   | a > x  = Node x left (insertTree a right)
+
+treeElem :: (Eq a) => a -> Tree a -> Bool
+treeElem a EmptyTree = False
