@@ -15,3 +15,4 @@ insertTree a EmptyTree = singleton a
 insertTree a (Node x left right)
   | a == x = Node x left right
   | a < x  = Node x (insertTree a left) right
+  | a > x  = Node x left (insertTree a right)

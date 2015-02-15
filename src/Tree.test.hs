@@ -9,7 +9,8 @@ tests = TestList [
   createsTreeWithEmptyTreeLeafes,
   createsSingletonWhenInsertingElementInEmptyTree,
   ignoresInsertForSameElement,
-  insertsSmallerElementToTheLeft
+  insertsSmallerElementToTheLeft,
+  insertsGreaterElementToTheRight
   ]
 
 createsTreeWithEmptyTreeLeafes =
@@ -23,3 +24,6 @@ ignoresInsertForSameElement =
 
 insertsSmallerElementToTheLeft =
   insertTree 1 (Node 2 EmptyTree EmptyTree) ~?= (Node 2 (Node 1 EmptyTree EmptyTree) EmptyTree)
+
+insertsGreaterElementToTheRight =
+  insertTree 3 (Node 2 EmptyTree EmptyTree) ~?= (Node 2 EmptyTree (Node 3 EmptyTree EmptyTree))
