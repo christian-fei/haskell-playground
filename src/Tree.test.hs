@@ -5,11 +5,11 @@ import Tree
 
 main = do runTestTT tests
 
-baseTree = singleton 1
+tree = baseTree 1
 
 tests = TestList [
   createsTreeWithEmptyTreeLeafes,
-  createsSingletonWhenInsertingElementInEmptyTree,
+  createsEmptyTreeWhenInsertingElementInEmptyTree,
   ignoresInsertForSameElement,
   insertsSmallerElementToTheLeft,
   insertsGreaterElementToTheRight
@@ -17,16 +17,16 @@ tests = TestList [
 
 
 createsTreeWithEmptyTreeLeafes =
-  singleton 1 ~?= Node 1 EmptyTree EmptyTree
+  baseTree 1 ~?= Node 1 EmptyTree EmptyTree
 
-createsSingletonWhenInsertingElementInEmptyTree =
-  insertTree 1 EmptyTree ~?= singleton 1
+createsEmptyTreeWhenInsertingElementInEmptyTree =
+  insertTree 1 EmptyTree ~?= Node 1 EmptyTree EmptyTree
 
 ignoresInsertForSameElement =
-  insertTree 1 baseTree ~?= Node 1 EmptyTree EmptyTree
+  insertTree 1 tree ~?= Node 1 EmptyTree EmptyTree
 
 insertsSmallerElementToTheLeft =
-  insertTree 0 baseTree ~?= (Node 1 (Node 0 EmptyTree EmptyTree) EmptyTree)
+  insertTree 0 tree ~?= (Node 1 (Node 0 EmptyTree EmptyTree) EmptyTree)
 
 insertsGreaterElementToTheRight =
-  insertTree 1 baseTree ~?= (Node 1 EmptyTree (Node 2 EmptyTree EmptyTree))
+  insertTree 1 tree ~?= (Node 1 EmptyTree (Node 2 EmptyTree EmptyTree))
