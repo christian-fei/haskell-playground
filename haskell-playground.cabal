@@ -16,7 +16,7 @@ extra-source-files:  README.md
 cabal-version:       >=1.10
 
 library
-  exposed-modules:     BinaryTree, Day, Lockers, Person, Shapes, Geometry.Cube, Geometry.Cuboid, Geometry.Sphere
+  exposed-modules:     Tree, Day, Lockers, Person, Shapes, Geometry.Cube, Geometry.Cuboid, Geometry.Sphere
   -- other-modules:
   -- other-extensions:
   build-depends:       base >=4.7 && <4.8, containers >=0.5 && <0.6, HUnit
