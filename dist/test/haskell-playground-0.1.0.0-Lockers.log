@@ -1,0 +1,4 @@
+Test suite Lockers: RUNNING...
+Cases: 3  Tried: 0  Errors: 0  Failures: 0Cases: 3  Tried: 1  Errors: 0  Failures: 0Cases: 3  Tried: 2  Errors: 0  Failures: 0                                          Cases: 3  Tried: 3  Errors: 0  Failures: 0
+Test suite Lockers: PASS
+Test suite logged to: dist/test/haskell-playground-0.1.0.0-Lockers.log

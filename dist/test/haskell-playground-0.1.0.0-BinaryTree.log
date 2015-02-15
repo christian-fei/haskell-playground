@@ -1,0 +1,4 @@
+Test suite BinaryTree: RUNNING...
+Cases: 0  Tried: 0  Errors: 0  Failures: 0
+Test suite BinaryTree: PASS
+Test suite logged to: dist/test/haskell-playground-0.1.0.0-BinaryTree.log
