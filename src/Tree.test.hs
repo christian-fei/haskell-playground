@@ -9,7 +9,7 @@ tree = baseTree 1
 
 tests = TestList [
   createsTreeWithEmptyTreeLeafes,
-  createsEmptyTreeWhenInsertingElementInEmptyTree,
+  createsEmptyTreeWithElementWhenInsertingElementInEmptyTree,
   doesNotInsertDuplicates,
   insertsSmallerElementToTheLeft,
   insertsGreaterElementToTheRight
@@ -19,7 +19,7 @@ tests = TestList [
 createsTreeWithEmptyTreeLeafes =
   baseTree 1 ~?= Node 1 EmptyTree EmptyTree
 
-createsEmptyTreeWhenInsertingElementInEmptyTree =
+createsEmptyTreeWithElementWhenInsertingElementInEmptyTree =
   insertTree 1 EmptyTree ~?= Node 1 EmptyTree EmptyTree
 
 doesNotInsertDuplicates =
