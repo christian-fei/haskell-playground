@@ -1,7 +1,7 @@
 module Tree (
   Tree (..),
   baseTree,
-  insertTree,
+  treeInsert,
   treeElem
 )
 where
@@ -11,12 +11,12 @@ data Tree a = EmptyTree | Node a (Tree a) (Tree a) deriving (Show,Read,Eq)
 baseTree :: a -> Tree a
 baseTree a = Node a EmptyTree EmptyTree
 
-insertTree :: (Ord a) => a -> Tree a -> Tree a
-insertTree a EmptyTree = baseTree a
-insertTree a (Node x left right)
+treeInsert :: (Ord a) => a -> Tree a -> Tree a
+treeInsert a EmptyTree = baseTree a
+treeInsert a (Node x left right)
   | a == x = Node x left right
-  | a < x  = Node x (insertTree a left) right
-  | a > x  = Node x left (insertTree a right)
+  | a < x  = Node x (treeInsert a left) right
+  | a > x  = Node x left (treeInsert a right)
 
 treeElem :: (Eq a) => a -> Tree a -> Bool
 treeElem a EmptyTree = False

@@ -24,16 +24,16 @@ createsTreeWithEmptyTreeLeafes =
   baseTree 1 ~?= Node 1 EmptyTree EmptyTree
 
 createsEmptyTreeWithElementWhenInsertingElementInEmptyTree =
-  insertTree 1 EmptyTree ~?= Node 1 EmptyTree EmptyTree
+  treeInsert 1 EmptyTree ~?= Node 1 EmptyTree EmptyTree
 
 doesNotInsertDuplicates =
-  insertTree 1 (Node 1 EmptyTree EmptyTree) ~?= Node 1 EmptyTree EmptyTree
+  treeInsert 1 (Node 1 EmptyTree EmptyTree) ~?= Node 1 EmptyTree EmptyTree
 
 insertsSmallerElementToTheLeft =
-  insertTree 0 tree ~?= (Node 1 (Node 0 EmptyTree EmptyTree) EmptyTree)
+  treeInsert 0 tree ~?= (Node 1 (Node 0 EmptyTree EmptyTree) EmptyTree)
 
 insertsGreaterElementToTheRight =
-  insertTree 2 tree ~?= (Node 1 EmptyTree (Node 2 EmptyTree EmptyTree))
+  treeInsert 2 tree ~?= (Node 1 EmptyTree (Node 2 EmptyTree EmptyTree))
 
 doesNotFindElementInEmptyTree =
   treeElem 0 EmptyTree ~?= False
@@ -45,4 +45,4 @@ findsElementIfExists=
   treeElem 1 tree ~?= True
 
 findsNestedElementIfExists =
-  treeElem 2 (insertTree 2 tree) ~?= True
+  treeElem 2 (treeInsert 2 tree) ~?= True
