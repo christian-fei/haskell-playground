@@ -8,7 +8,8 @@ main = do runTestTT tests
 tests = TestList [
   createsTreeWithEmptyTreeLeafes,
   createsSingletonWhenInsertingElementInEmptyTree,
-  ignoresInsertForSameElement
+  ignoresInsertForSameElement,
+  insertsSmallerElementToTheLeft
   ]
 
 createsTreeWithEmptyTreeLeafes =
@@ -19,3 +20,6 @@ createsSingletonWhenInsertingElementInEmptyTree =
 
 ignoresInsertForSameElement =
   insertTree 1 (Node 1 EmptyTree EmptyTree) ~?= Node 1 EmptyTree EmptyTree
+
+insertsSmallerElementToTheLeft =
+  insertTree 1 (Node 2 EmptyTree EmptyTree) ~?= (Node 2 (Node 1 EmptyTree EmptyTree) EmptyTree)
