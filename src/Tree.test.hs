@@ -10,7 +10,7 @@ tree = baseTree 1
 tests = TestList [
   createsTreeWithEmptyTreeLeafes,
   createsEmptyTreeWhenInsertingElementInEmptyTree,
-  ignoresInsertForSameElement,
+  doesNotInsertDuplicates,
   insertsSmallerElementToTheLeft,
   insertsGreaterElementToTheRight
   ]
@@ -22,8 +22,8 @@ createsTreeWithEmptyTreeLeafes =
 createsEmptyTreeWhenInsertingElementInEmptyTree =
   insertTree 1 EmptyTree ~?= Node 1 EmptyTree EmptyTree
 
-ignoresInsertForSameElement =
-  insertTree 1 tree ~?= Node 1 EmptyTree EmptyTree
+doesNotInsertDuplicates =
+  insertTree 1 (Node 1 EmptyTree EmptyTree) ~?= Node 1 EmptyTree EmptyTree
 
 insertsSmallerElementToTheLeft =
   insertTree 0 tree ~?= (Node 1 (Node 0 EmptyTree EmptyTree) EmptyTree)
