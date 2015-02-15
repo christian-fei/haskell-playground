@@ -1,3 +1,0 @@
-module BinaryTree
-where
-

@@ -31,9 +31,9 @@ Test-Suite Lockers
   build-depends:       base, containers, HUnit
   default-language:    Haskell2010
 
-Test-Suite BinaryTree
+Test-Suite Tree
   type:                exitcode-stdio-1.0
-  main-is:             BinaryTree.test.hs
+  main-is:             Tree.test.hs
   hs-source-dirs:      src
   build-depends:       base, containers, HUnit
   default-language:    Haskell2010
